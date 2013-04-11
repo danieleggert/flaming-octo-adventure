@@ -25,6 +25,7 @@
 @property(nonatomic) BOOL isStreamable;
 @property(nonatomic, strong) NSURL *URI;
 @property(nonatomic, strong) NSURL *waveformURL;
+@property(nonatomic, strong) NSURL *permalinkURL;
 
 @end
 
@@ -45,7 +46,22 @@
     track.isStreamable = [transport[@"streamable"] boolValue];
     track.URI = [NSURL gracefulURLWithString:transport[@"uri"]];
     track.waveformURL = [NSURL gracefulURLWithString:transport[@"waveform_url"]];
+    track.permalinkURL = [NSURL gracefulURLWithString:transport[@"permalink_url"]];
     return track;
+}
+
+- (NSURL *)openInSoundCloundURL;
+{
+    if (self.identifier == 0) {
+        return nil;
+    }
+    NSString *urlString = [NSString stringWithFormat:@"soundcloud:tracks:%@", @(self.identifier)];
+    return [NSURL URLWithString:urlString];
+}
+
+- (NSURL *)openInSafariURL;
+{
+    return self.permalinkURL;
 }
 
 @end

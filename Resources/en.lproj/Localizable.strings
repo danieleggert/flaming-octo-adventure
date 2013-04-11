@@ -7,3 +7,5 @@
 */
 
 "GROUPS_TITLE" = "Your Groups";
+"NAVBAR_LOGOUT" = "Logout";
+"NAVBAR_LOGIN" = "Login";

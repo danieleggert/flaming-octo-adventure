@@ -25,4 +25,7 @@
 @property(readonly, nonatomic, strong) NSURL *URI;
 @property(readonly, nonatomic, strong) NSURL *waveformURL;
 
+@property(readonly, nonatomic, strong) NSURL *openInSoundCloundURL;
+@property(readonly, nonatomic, strong) NSURL *openInSafariURL;
+
 @end

@@ -13,3 +13,6 @@
 [submodule "Submodules/CocoaSoundCloudUI"]
 	path = Submodules/CocoaSoundCloudUI
 	url = git://github.com/soundcloud/CocoaSoundCloudUI.git
+[submodule "Submodules/DCIntrospect"]
+	path = Submodules/DCIntrospect
+	url = git://github.com/domesticcatsoftware/DCIntrospect.git

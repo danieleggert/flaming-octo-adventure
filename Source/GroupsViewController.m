@@ -25,6 +25,7 @@ static NSString * const GroupCellReuseIdentifier = @"group";
 @interface GroupsViewController ()
 
 @property(nonatomic, strong) AuthenticatedUser *user;
+@property(nonatomic, strong) UIBarButtonItem *loginItem;
 
 @end
 
@@ -55,8 +56,12 @@ static NSString * const GroupCellReuseIdentifier = @"group";
     
     self.user = [[AuthenticatedUser alloc] init];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(accountDidChange:) name:SCSoundCloudAccountDidChangeNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(groupsDidChange:) name:AuthenticatedUserGroupsDidChange object:self.user];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(groupsDidChange:) name:AuthenticatedUserGroupsDidChange object:nil];
     [self.user updateGroups];
+    
+    self.loginItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"NAVBAR_LOGOUT", @"") style:UIBarButtonItemStyleBordered target:self action:@selector(login:)];
+    self.loginItem.possibleTitles = [NSSet setWithObjects:NSLocalizedString(@"NAVBAR_LOGOUT", @""), NSLocalizedString(@"NAVBAR_LOGIN", @""), nil];
+    self.navigationItem.rightBarButtonItem = self.loginItem;
     
     self.title = NSLocalizedString(@"GROUPS_TITLE", @"");
 }
@@ -67,22 +72,26 @@ static NSString * const GroupCellReuseIdentifier = @"group";
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)login:(id)sender
+- (void)login:(id)sender
 {
-    SCLoginViewControllerCompletionHandler handler = ^(NSError *error) {
-        if (SC_CANCELED(error)) {
-            NSLog(@"Canceled!");
-        } else if (error) {
-            NSLog(@"Error: %@", [error localizedDescription]);
-        } else {
-            NSLog(@"Done!");
-        }
-    };
-    
-    [SCSoundCloud requestAccessWithPreparedAuthorizationURLHandler:^(NSURL *preparedURL) {
-        SCLoginViewController *loginViewController = [SCLoginViewController loginViewControllerWithPreparedURL:preparedURL completionHandler:handler];
-        [self presentViewController:loginViewController animated:YES completion:nil];
-    }];
+    if (self.user == nil) {
+        SCLoginViewControllerCompletionHandler handler = ^(NSError *error) {
+            if (SC_CANCELED(error)) {
+                NSLog(@"Canceled!");
+            } else if (error) {
+                NSLog(@"Error: %@", [error localizedDescription]);
+            } else {
+                NSLog(@"Done!");
+            }
+        };
+        
+        [SCSoundCloud requestAccessWithPreparedAuthorizationURLHandler:^(NSURL *preparedURL) {
+            SCLoginViewController *loginViewController = [SCLoginViewController loginViewControllerWithPreparedURL:preparedURL completionHandler:handler];
+            [self presentViewController:loginViewController animated:YES completion:nil];
+        }];
+    } else {
+        [SCSoundCloud removeAccess];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated;
@@ -95,12 +104,20 @@ static NSString * const GroupCellReuseIdentifier = @"group";
 
 - (void)accountDidChange:(NSNotification *)note;
 {
+    self.user = [[AuthenticatedUser alloc] init];
     [self.user updateGroups];
+    [self.tableView reloadData];
+    
+    self.loginItem.title = ((self.user == nil) ?
+                            NSLocalizedString(@"NAVBAR_LOGIN", @"") :
+                            NSLocalizedString(@"NAVBAR_LOGOUT", @""));
 }
 
 - (void)groupsDidChange:(NSNotification *)note;
 {
-    [self.tableView reloadData];
+    if (note.object == self.user) {
+        [self.tableView reloadData];
+    }
 }
 
 @end

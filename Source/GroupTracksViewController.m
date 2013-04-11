@@ -10,6 +10,8 @@
 
 #import "Group.h"
 #import "Track.h"
+#import "TrackCell.h"
+#import "TrackWaveformCache.h"
 
 
 static NSString * const TrackCellReuseIdentifier = @"track";
@@ -45,9 +47,11 @@ static NSString * const TrackCellReuseIdentifier = @"track";
 {
     [super viewDidLoad];
     
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:TrackCellReuseIdentifier];
+    [self.tableView registerClass:[TrackCell class] forCellReuseIdentifier:TrackCellReuseIdentifier];
+    self.tableView.rowHeight = [TrackCell height];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tracksDidChange:) name:GroupTracksDidChange object:self.group];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didCreateWaveformImage:) name:TrackWaveformCacheDidCreateImage object:nil];
     [self.group fetchTracks];
     
     self.title = self.group.name;
@@ -58,7 +62,23 @@ static NSString * const TrackCellReuseIdentifier = @"track";
     [self.tableView reloadData];
 }
 
+- (void)didCreateWaveformImage:(NSNotification *)note;
+{
+    Track *track = note.object;
+    for (TrackCell *cell in self.tableView.visibleCells) {
+        NSIndexPath *path = [self.tableView indexPathForCell:cell];
+        if (path != nil) {
+            Track *cellTrack = self.group.tracks[path.row];
+            if (cellTrack == track) {
+                [cell updateImageForTrack:track];
+                break;
+            }
+        }
+    }
+}
+
 @end
+
 
 
 @implementation GroupTracksViewController (TableViewDataSourceAndDelegate)
@@ -75,15 +95,26 @@ static NSString * const TrackCellReuseIdentifier = @"track";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TrackCellReuseIdentifier forIndexPath:indexPath];
+    TrackCell *cell = [tableView dequeueReusableCellWithIdentifier:TrackCellReuseIdentifier forIndexPath:indexPath];
     Track *track = self.group.tracks[indexPath.row];
-    cell.textLabel.text = track.title;
+    [cell configureForTrack:track];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // 
+    Track *track = self.group.tracks[indexPath.row];
+
+    BOOL didOpen = NO;
+    NSURL *openInAppURL = track.openInSoundCloundURL;
+    if (openInAppURL != nil) {
+        didOpen = [[UIApplication sharedApplication] openURL:openInAppURL];
+    }
+    if (!didOpen) {
+        [[UIApplication sharedApplication] openURL:track.openInSafariURL];
+    }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

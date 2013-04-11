@@ -11,7 +11,7 @@
 #import "SCAPI.h"
 #import "SCUI.h"
 #import "GroupsViewController.h"
-
+#import "DCIntrospect.h"
 
 
 @implementation AppDelegate
@@ -29,6 +29,11 @@
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:[[GroupsViewController alloc] init]];
     self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];
+    
+    // always call after makeKeyAndDisplay.
+#if TARGET_IPHONE_SIMULATOR
+    [[DCIntrospect sharedIntrospector] start];
+#endif
     
     return YES;
 }

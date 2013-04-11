@@ -11,6 +11,8 @@
 #import "ServerRequest.h"
 
 #import "Group.h"
+#import "SCAPI.h"
+
 
 
 NSString * const AuthenticatedUserGroupsDidChange = @"AuthenticatedUserGroupsDidChange";
@@ -25,6 +27,16 @@ NSString * const AuthenticatedUserGroupsDidChange = @"AuthenticatedUserGroupsDid
 
 
 @implementation AuthenticatedUser
+
+- (id)init
+{
+    SCAccount *account = [SCSoundCloud account];
+    if (account == nil) {
+        return nil;
+    }
+    self = [super init];
+    return self;
+}
 
 - (void)updateGroups;
 {

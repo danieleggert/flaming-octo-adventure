@@ -15,6 +15,14 @@
 		3E3B22D517172BB2008FDAF2 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B22D417172BB2008FDAF2 /* Track.m */; };
 		3E3B22D817172F6B008FDAF2 /* NSURL+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B22D717172F6B008FDAF2 /* NSURL+Helpers.m */; };
 		3E3B22DB1717316C008FDAF2 /* NSDate+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B22DA1717316C008FDAF2 /* NSDate+Helpers.m */; };
+		3E3B22DE1717372F008FDAF2 /* TrackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B22DD1717372E008FDAF2 /* TrackCell.m */; };
+		3E3B22EA17174257008FDAF2 /* DCCrossHairView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B22E217174257008FDAF2 /* DCCrossHairView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3E3B22EB17174257008FDAF2 /* DCFrameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B22E417174257008FDAF2 /* DCFrameView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3E3B22EC17174257008FDAF2 /* DCIntrospect.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B22E617174257008FDAF2 /* DCIntrospect.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3E3B22ED17174257008FDAF2 /* DCStatusBarOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B22E917174257008FDAF2 /* DCStatusBarOverlay.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3E3B22F01717463B008FDAF2 /* TrackWaveformCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B22EF1717463B008FDAF2 /* TrackWaveformCache.m */; };
+		3E3B22F317175D38008FDAF2 /* Icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E3B22F117175D38008FDAF2 /* Icon57.png */; };
+		3E3B22F417175D38008FDAF2 /* Icon57@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E3B22F217175D38008FDAF2 /* Icon57@2x.png */; };
 		3E5391BC1716004E00897156 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E5391BB1716004E00897156 /* UIKit.framework */; };
 		3E5391BE1716004E00897156 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E5391BD1716004E00897156 /* Foundation.framework */; };
 		3E5391C01716004E00897156 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E5391BF1716004E00897156 /* CoreGraphics.framework */; };
@@ -135,6 +143,21 @@
 		3E3B22D717172F6B008FDAF2 /* NSURL+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+Helpers.m"; sourceTree = "<group>"; };
 		3E3B22D91717316C008FDAF2 /* NSDate+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helpers.h"; sourceTree = "<group>"; };
 		3E3B22DA1717316C008FDAF2 /* NSDate+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Helpers.m"; sourceTree = "<group>"; };
+		3E3B22DC1717372E008FDAF2 /* TrackCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackCell.h; sourceTree = "<group>"; };
+		3E3B22DD1717372E008FDAF2 /* TrackCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackCell.m; sourceTree = "<group>"; };
+		3E3B22E117174257008FDAF2 /* DCCrossHairView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCCrossHairView.h; sourceTree = "<group>"; };
+		3E3B22E217174257008FDAF2 /* DCCrossHairView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCCrossHairView.m; sourceTree = "<group>"; };
+		3E3B22E317174257008FDAF2 /* DCFrameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCFrameView.h; sourceTree = "<group>"; };
+		3E3B22E417174257008FDAF2 /* DCFrameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCFrameView.m; sourceTree = "<group>"; };
+		3E3B22E517174257008FDAF2 /* DCIntrospect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCIntrospect.h; sourceTree = "<group>"; };
+		3E3B22E617174257008FDAF2 /* DCIntrospect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCIntrospect.m; sourceTree = "<group>"; };
+		3E3B22E717174257008FDAF2 /* DCIntrospectSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCIntrospectSettings.h; sourceTree = "<group>"; };
+		3E3B22E817174257008FDAF2 /* DCStatusBarOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCStatusBarOverlay.h; sourceTree = "<group>"; };
+		3E3B22E917174257008FDAF2 /* DCStatusBarOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCStatusBarOverlay.m; sourceTree = "<group>"; };
+		3E3B22EE1717463B008FDAF2 /* TrackWaveformCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackWaveformCache.h; sourceTree = "<group>"; };
+		3E3B22EF1717463B008FDAF2 /* TrackWaveformCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackWaveformCache.m; sourceTree = "<group>"; };
+		3E3B22F117175D38008FDAF2 /* Icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon57.png; sourceTree = "<group>"; };
+		3E3B22F217175D38008FDAF2 /* Icon57@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon57@2x.png"; sourceTree = "<group>"; };
 		3E5391B81716004E00897156 /* AwesomeCodeChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AwesomeCodeChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E5391BB1716004E00897156 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3E5391BD1716004E00897156 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -200,6 +223,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E3B22E017174257008FDAF2 /* DCIntrospect */ = {
+			isa = PBXGroup;
+			children = (
+				3E3B22E117174257008FDAF2 /* DCCrossHairView.h */,
+				3E3B22E217174257008FDAF2 /* DCCrossHairView.m */,
+				3E3B22E317174257008FDAF2 /* DCFrameView.h */,
+				3E3B22E417174257008FDAF2 /* DCFrameView.m */,
+				3E3B22E517174257008FDAF2 /* DCIntrospect.h */,
+				3E3B22E617174257008FDAF2 /* DCIntrospect.m */,
+				3E3B22E717174257008FDAF2 /* DCIntrospectSettings.h */,
+				3E3B22E817174257008FDAF2 /* DCStatusBarOverlay.h */,
+				3E3B22E917174257008FDAF2 /* DCStatusBarOverlay.m */,
+			);
+			name = DCIntrospect;
+			path = Submodules/DCIntrospect/DCIntrospect;
+			sourceTree = "<group>";
+		};
 		3E5391AF1716004E00897156 = {
 			isa = PBXGroup;
 			children = (
@@ -248,12 +288,16 @@
 				3E5392641717201E00897156 /* GroupsViewController.m */,
 				3E3B22D017172A8C008FDAF2 /* GroupTracksViewController.h */,
 				3E3B22D117172A8C008FDAF2 /* GroupTracksViewController.m */,
+				3E3B22DC1717372E008FDAF2 /* TrackCell.h */,
+				3E3B22DD1717372E008FDAF2 /* TrackCell.m */,
 				3E3B22CA17172319008FDAF2 /* AuthenticatedUser.h */,
 				3E3B22CB17172319008FDAF2 /* AuthenticatedUser.m */,
 				3E3B22C7171722E0008FDAF2 /* Group.h */,
 				3E3B22C8171722E0008FDAF2 /* Group.m */,
 				3E3B22D317172BB2008FDAF2 /* Track.h */,
 				3E3B22D417172BB2008FDAF2 /* Track.m */,
+				3E3B22EE1717463B008FDAF2 /* TrackWaveformCache.h */,
+				3E3B22EF1717463B008FDAF2 /* TrackWaveformCache.m */,
 				3E3B22CD17172446008FDAF2 /* ServerRequest.h */,
 				3E3B22CE17172446008FDAF2 /* ServerRequest.m */,
 				3E5392211716FFEE00897156 /* Helpers */,
@@ -264,6 +308,8 @@
 		3E5391D91716009100897156 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3E3B22F117175D38008FDAF2 /* Icon57.png */,
+				3E3B22F217175D38008FDAF2 /* Icon57@2x.png */,
 				3E5391DA171600A600897156 /* AwesomeCodeChallenge-Info.plist */,
 				3E5391DB171600A600897156 /* Default-568h@2x.png */,
 				3E5391DC171600A600897156 /* Default.png */,
@@ -276,6 +322,7 @@
 		3E5391EA1716038600897156 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				3E3B22E017174257008FDAF2 /* DCIntrospect */,
 				3E3B22C017172175008FDAF2 /* SoundCloud.bundle */,
 				3E5392111716FA4800897156 /* Headers */,
 				3E53922F17171C3200897156 /* SoundCloudUI.xcodeproj */,
@@ -506,6 +553,8 @@
 				3E5391E2171600A600897156 /* Default@2x.png in Resources */,
 				3E3B22C117172175008FDAF2 /* SoundCloud.bundle in Resources */,
 				3E5391E3171600A600897156 /* en.lproj in Resources */,
+				3E3B22F317175D38008FDAF2 /* Icon57.png in Resources */,
+				3E3B22F417175D38008FDAF2 /* Icon57@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,6 +577,12 @@
 				3E3B22D517172BB2008FDAF2 /* Track.m in Sources */,
 				3E3B22D817172F6B008FDAF2 /* NSURL+Helpers.m in Sources */,
 				3E3B22DB1717316C008FDAF2 /* NSDate+Helpers.m in Sources */,
+				3E3B22DE1717372F008FDAF2 /* TrackCell.m in Sources */,
+				3E3B22EA17174257008FDAF2 /* DCCrossHairView.m in Sources */,
+				3E3B22EB17174257008FDAF2 /* DCFrameView.m in Sources */,
+				3E3B22EC17174257008FDAF2 /* DCIntrospect.m in Sources */,
+				3E3B22ED17174257008FDAF2 /* DCStatusBarOverlay.m in Sources */,
+				3E3B22F01717463B008FDAF2 /* TrackWaveformCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
