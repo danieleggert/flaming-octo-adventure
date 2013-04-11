@@ -6,6 +6,4 @@
   Copyright (c) 2013 Bödewadt. All rights reserved.
 */
 
-"LOGIN_USERNAME_LABEL" = "Username";
-"LOGIN_PASSWORD_LABEL" = "Password";
-"LOGIN_LOGIN_BUTTON_TITLE" = "Login";
+"GROUPS_TITLE" = "Your Groups";

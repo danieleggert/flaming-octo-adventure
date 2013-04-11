@@ -1,5 +1,5 @@
 //
-//  LoginViewController.h
+//  GroupsViewController.h
 //  AwesomeCodeChallenge
 //
 //  Created by Daniel Eggert on 11/04/2013.
@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoginViewController : UIViewController
 
+
+@interface GroupsViewController : UITableViewController
 @end

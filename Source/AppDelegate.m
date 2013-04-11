@@ -9,7 +9,8 @@
 #import "AppDelegate.h"
 
 #import "SCAPI.h"
-#import "LoginViewController.h"
+#import "SCUI.h"
+#import "GroupsViewController.h"
 
 
 
@@ -25,7 +26,8 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = [[LoginViewController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:[[GroupsViewController alloc] init]];
+    self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];
     
     return YES;
