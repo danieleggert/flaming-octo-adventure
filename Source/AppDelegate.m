@@ -8,15 +8,31 @@
 
 #import "AppDelegate.h"
 
+#import "SCAPI.h"
+#import "LoginViewController.h"
+
+
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(accountDidChange:) name:SCSoundCloudAccountDidChangeNotification object:nil];
+    
+    [SCSoundCloud setClientID:@"af0f4e719232ea98b681cdab929a0371"
+                       secret:@"67410c9555dd5492da4ae2d57e276f38"
+                  redirectURL:[NSURL URLWithString:@"danielsoundcloudchallenge://soundcloudoauth"]];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    self.window.rootViewController = [[LoginViewController alloc] init];
     [self.window makeKeyAndVisible];
+    
     return YES;
+}
+
+- (void)accountDidChange:(NSNotification *)note;
+{
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
